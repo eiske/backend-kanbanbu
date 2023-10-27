@@ -33,9 +33,9 @@ import {
     deleteSubjectsMarkdown,
 } from "./controllers/subject";
 
-const router = Router();
+const router = new Router();
 
-router.post("/user/register", registerController);
+router.post("/register", registerController);
 
 router.post("/login", loginController);
 

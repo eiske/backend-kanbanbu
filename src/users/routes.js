@@ -2,40 +2,40 @@ import { Router } from "express";
 import authMiddleware from "../app/middleware/auth";
 import { loginController, registerController } from "./controllers/session";
 import {
-  getBoardTasksTodo,
-  addBoardTasksTodo,
-  updateBoardTasksTodo,
-  deleteBoardTasksTodo,
-  getBoardTasksDoing,
-  addBoardTasksDoing,
-  updateBoardTasksDoing,
-  deleteBoardTasksDoing,
-  getBoardTasksCompleted,
-  addBoardTasksCompleted,
-  updateBoardTasksCompleted,
-  deleteBoardTasksCompleted,
+    getBoardTasksTodo,
+    addBoardTasksTodo,
+    updateBoardTasksTodo,
+    deleteBoardTasksTodo,
+    getBoardTasksDoing,
+    addBoardTasksDoing,
+    updateBoardTasksDoing,
+    deleteBoardTasksDoing,
+    getBoardTasksCompleted,
+    addBoardTasksCompleted,
+    updateBoardTasksCompleted,
+    deleteBoardTasksCompleted,
 } from "./controllers/board";
 
 import {
-  getMarkdown,
-  getMarkdownToExport,
-  addMarkdown,
-  addMarkdownImport,
-  updateMarkdown,
-  deleteMarkdown,
+    getMarkdown,
+    getMarkdownToExport,
+    addMarkdown,
+    addMarkdownImport,
+    updateMarkdown,
+    deleteMarkdown,
 } from "./controllers/markdown";
 
 import {
-  getSubjects,
-  addSubjects,
-  updateSubjects,
-  deleteSubjects,
-  deleteSubjectsMarkdown,
+    getSubjects,
+    addSubjects,
+    updateSubjects,
+    deleteSubjects,
+    deleteSubjectsMarkdown,
 } from "./controllers/subject";
 
 const router = Router();
 
-router.post("/register", registerController);
+router.post("/user/register", registerController);
 
 router.post("/login", loginController);
 

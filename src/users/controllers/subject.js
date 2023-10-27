@@ -1,4 +1,4 @@
-import pool from "../../config/db";
+import pool from "../../config/db.js";
 import {
     getSubjectsQuery,
     checkUserExists,
@@ -7,7 +7,7 @@ import {
     deleteSubjectsQuery,
     deleteSubjectsMarkdownQuery,
     checkSubjectsExists,
-} from "../queries";
+} from "../queries.js";
 
 export const getSubjects = (req, res) => {
     const id = req.params.id;

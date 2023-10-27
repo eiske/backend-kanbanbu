@@ -1,4 +1,4 @@
-import pool from "../../config/db";
+import pool from "../../config/db.js";
 import {
     checkUserExists,
     checkTaskTodoExists,
@@ -16,7 +16,7 @@ import {
     addBoardTasksCompletedQuery,
     updateBoardTasksCompletedQuery,
     deleteBoardTasksCompletedQuery,
-} from "../queries";
+} from "../queries.js";
 
 //////////////// BoardTasksTodo ////////////////
 

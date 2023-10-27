@@ -1,6 +1,7 @@
 import { Router } from "express";
-import authMiddleware from "../app/middleware/auth";
-import { loginController, registerController } from "./controllers/session";
+
+import { loginController, registerController } from "./controllers/session.js";
+
 import {
     getBoardTasksTodo,
     addBoardTasksTodo,
@@ -14,7 +15,15 @@ import {
     addBoardTasksCompleted,
     updateBoardTasksCompleted,
     deleteBoardTasksCompleted,
-} from "./controllers/board";
+} from "./controllers/board.js";
+
+import {
+    getSubjects,
+    addSubjects,
+    updateSubjects,
+    deleteSubjects,
+    deleteSubjectsMarkdown,
+} from "./controllers/subject.js";
 
 import {
     getMarkdown,
@@ -23,15 +32,9 @@ import {
     addMarkdownImport,
     updateMarkdown,
     deleteMarkdown,
-} from "./controllers/markdown";
+} from "./controllers/markdown.js";
 
-import {
-    getSubjects,
-    addSubjects,
-    updateSubjects,
-    deleteSubjects,
-    deleteSubjectsMarkdown,
-} from "./controllers/subject";
+import authMiddleware from "../app/middleware/auth.js";
 
 const router = new Router();
 

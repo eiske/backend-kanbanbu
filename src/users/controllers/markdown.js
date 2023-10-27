@@ -1,5 +1,6 @@
 import format from "pg-format";
-import pool from "../../config/db";
+
+import pool from "../../config/db.js";
 import {
     getMarkdownQuery,
     getMarkdownToExportQuery,
@@ -8,7 +9,7 @@ import {
     checkUserExists,
     deleteMarkdownQuery,
     checkMarkdownExists,
-} from "../queries";
+} from "../queries.js";
 
 export const getMarkdown = (req, res) => {
     const id = req.params.id;

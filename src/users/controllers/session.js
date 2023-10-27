@@ -1,18 +1,18 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-import pool from "../../config/db";
-import authConfig from "../../config/auth";
+import pool from "../../config/db.js";
+import { authConfig } from "../../config/auth.js";
+
+//Registration Function
 
 export const registerController = async (req, res) => {
     const { name, email, password } = req.body;
     try {
         const data = await pool.query(`SELECT * FROM users WHERE email= $1;`, [
             email,
-        ]);
-        //Checking if user already exists
+        ]); //Checking if user already exists
         const arr = data.rows;
-
         if (arr.length != 0) {
             return res.status(400).json({
                 error: "Email já cadastrado!",
@@ -20,7 +20,7 @@ export const registerController = async (req, res) => {
         } else {
             bcrypt.hash(password, 10, (err, hash) => {
                 if (err)
-                    res.status(500).json({
+                    res.status(err).json({
                         error: "Server error",
                     });
                 const user = {
@@ -106,9 +106,10 @@ export const loginController = async (req, res) => {
                     });
                 } else {
                     //Declaring the errors
-                    res.status(400).json({
-                        error: "Senha incorreta!",
-                    });
+                    if (result != true)
+                        res.status(400).json({
+                            error: "Senha incorreta!",
+                        });
                 }
             });
         }
